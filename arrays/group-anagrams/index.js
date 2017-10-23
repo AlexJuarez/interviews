@@ -14,4 +14,4 @@ const groupAnagrams = function(strs) {
   return Object.values(m).map(arr => arr.sort());
 };
 
-console.log(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]));
+module.exports = groupAnagrams;

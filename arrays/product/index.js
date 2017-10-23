@@ -1,5 +1,3 @@
-// Given an array of numbers, replace each number with the product of all the numbers in the array except the number itself *without* using division.
-
 const arrayProduct = (numbers) => {
   const leftProduct = (new Array(numbers.length)).fill(1);
   const rightProduct = (new Array(numbers.length)).fill(1);
@@ -20,5 +18,7 @@ const arrayProduct = (numbers) => {
 
   return result;
 };
+
+module.exports = arrayProduct;
 
 console.log(arrayProduct([1, 2, 3, 4]));

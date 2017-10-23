@@ -3,7 +3,7 @@
  * @param {number} target
  * @return {number[][]}
  */
-const combinationSum = function(candidates, target) {
+const combinationSum2 = function(candidates, target) {
   const targets = candidates
     .slice()
     .sort((a, b) => a - b);
@@ -30,9 +30,4 @@ const findCombinations = (canidates, target, nums, output, start = 0) => {
   }
 };
 
-//console.log(combinationSum([2, 3, 6, 7], 7));
-
-console.log(combinationSum([10,1,2,7,6,1,5], 8));
-
-//console.log(combinationSum([3, 12, 9, 11, 6, 7, 8, 5, 4], 15));
-
+module.exports = combinationSum2;

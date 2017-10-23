@@ -1,4 +1,4 @@
-const lengthOfLongestSubstring = function(s) {
+const lengthOfLongestSubstring = (s) => {
   const chars = new Array(26).fill(0);
   const offset = 'a'.charCodeAt(0);
 
