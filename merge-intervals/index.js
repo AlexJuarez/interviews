@@ -10,20 +10,23 @@
  * @return {Interval[]}
  */
 const merge = (intervals) => {
+  intervals.sort((a, b) => a.start - b.start);
+
   let output = [];
   let interval = intervals[0];
   for (let i = 1; i < intervals.length; i++) {
     const curr = intervals[i];
-    if (curr[0] < interval[1] && curr[1] > interval[1]) {
-      interval[1] = curr[1];
-    } else if (curr[0] > interval[1]) {
+    if (curr.start <= interval.end && curr.end > interval.end) {
+      interval.end = curr.end;
+    } else if (curr.start > interval.end) {
       output.push(interval);
       interval = curr;
     }
   }
 
-  output.push(interval);
-
+  if (interval != null) {
+    output.push(interval);
+  }
 
   return output;
 };

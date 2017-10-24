@@ -1,4 +1,4 @@
-var minPathSum = function(grid) {
+const minPathSum = (grid) => {
   const pq = [{row: 0, col: 0, n: grid[0][0]}];
 
   while (pq.length) {
