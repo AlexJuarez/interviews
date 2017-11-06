@@ -26,6 +26,7 @@ const minDistance = (word1, word2) => {
     }
   }
 
+  console.log(D);
 
   return D[m][n];
 };
