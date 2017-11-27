@@ -13,20 +13,20 @@ const combinationSum = function(candidates, target) {
   return output;
 };
 
-const findCombinations = (canidates, target, nums, output, start = 0) => {
+const findCombinations = (candidates, target, nums, output, start = 0) => {
   if (target === 0) {
     output.push(nums.slice());
     return;
   }
 
-  for (let i = start; i < canidates.length && canidates[i] <= target; i++) {
-    const num = canidates[i];
+  for (let i = start; i < candidates.length && candidates[i] <= target; i++) {
+    const num = candidates[i];
     const sum = target - num;
     nums.push(num);
     if (sum === 0) {
       output.push(nums.slice());
     } else {
-      findCombinations(canidates, sum, nums, output, i);
+      findCombinations(candidates, sum, nums, output, i);
     }
     nums.pop();
   }
