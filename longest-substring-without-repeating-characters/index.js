@@ -1,20 +1,29 @@
-const lengthOfLongestSubstring = (s) => {
-  const chars = new Array(26).fill(0);
-  const offset = 'a'.charCodeAt(0);
-
+const lengthOfLongestSubstring = function(s) {
+  const letters = [];
+  let result = '';
   let start = 0;
-  let max = 0;
+
+  const offset = 'a'.charCodeAt(0);
+  const getCode = (i) => s.charCodeAt(i) - offset;
+
   for (let i = 0; i < s.length; i++) {
-    const char = s.charCodeAt(i) - offset;
-    if (chars[char] != null && start <= chars[char]) {
-      start = chars[char] + 1;
-    } else if ((i - start + 1) > max) {
-      max = i - start + 1;
+    const code = getCode(i);
+
+    if (letters[code] != null && letters[code] + 1 > start) {
+      start = letters[code] + 1;
     }
-    chars[char] = i;
+
+    if (i - start >= result.length) {
+      result = s.substring(start, i + 1);
+    }
+
+    letters[code] = i;
   }
 
-  return max;
+  return result;
 };
 
-module.exports = lengthOfLongestSubstring;
+console.log(lengthOfLongestSubstring('abba'));
+console.log(lengthOfLongestSubstring('abcabcbb'));
+console.log(lengthOfLongestSubstring('bbbbb'));
+console.log(lengthOfLongestSubstring('pwwkew'));
